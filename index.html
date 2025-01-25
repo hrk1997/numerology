@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerology Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+    </style>
+</head>
+<body>
+
+    <h1>Numerology Calculator</h1>
+    <p>Enter your name below to calculate the numerology value based on the chart.</p>
+
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="calculateNumerology()">Calculate</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        // Numerology chart based on the image provided
+        const numerologyChart = {
+            'A': 1, 'I': 1, 'J': 1, 'Q': 1, 'Y': 1,
+            'B': 2, 'K': 2, 'R': 2,
+            'C': 3, 'G': 3, 'L': 3, 'S': 3,
+            'D': 4, 'M': 4, 'T': 4,
+            'E': 5, 'H': 5, 'N': 5, 'X': 5,
+            'U': 6, 'V': 6, 'W': 6,
+            'O': 7, 'Z': 7,
+            'F': 8, 'P': 8
+        };
+
+        function calculateNumerology() {
+            const name = document.getElementById('nameInput').value.toUpperCase();
+            let total = 0;
+
+            for (let i = 0; i < name.length; i++) {
+                const letter = name[i];
+                if (numerologyChart[letter]) {
+                    total += numerologyChart[letter];
+                }
+            }
+
+            document.getElementById('result').innerHTML = "Numerology Value: " + total;
+        }
+    </script>
+    <table>
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A, I, J, Q, Y</td>
+                <td>B, K, R</td>
+                <td>C, G, L, S</td>
+                <td>D, M, T</td>
+                <td>E, H, N, X</td>
+                <td>U, V, W</td>
+                <td>O, Z</td>
+                <td>F, P</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
